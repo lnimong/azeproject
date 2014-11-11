@@ -1,0 +1,418 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<script src="jquery.js"></script>
+<script src="underscore.js"></script>
+<script src="backbone.js"></script>
+
+<script type="text/template" id="freelist">
+	<div>free list</div>
+</script>
+
+<script type="text/template" id="profil">
+	<div>profil</div>
+</script>
+
+<script type="text/template" id="test">
+	<div>test</div>
+</script>
+
+<script type="text/template" id="testlist">
+	<div>test</div>
+</script>
+
+<script type="text/template" id="candidates">
+	<div>test</div>
+</script>
+
+<script>
+
+    var AppRouter = Backbone.Router.extend({
+        routes: {
+            "index": "getUsers",
+            "users/:page": "getUsers",
+            "contacts/:id/:page":"getContacts",
+            "candidates/:id/:page":"getCandidates",
+            "details/:id" : "getDetails",
+            "test/:id" : "getTest",
+            "about" : "getAbout",
+            "editor/:id": "getEditor"
+        }
+    });
+
+    // Instantiate the router
+    var app_router = new AppRouter;
+    app_router.on('route:getUsers', function (page) {
+        // Note the variable in the route definition being passed in here
+        alert( "users page " + page );   
+        $.get('users.html', function (data) {
+        	alert(data);
+        });
+    });
+
+    app_router.on('route:getDetails', function (id) {
+        // Note the variable in the route definition being passed in here
+        alert( "user detail " + id );   
+    });
+
+    app_router.on('route:getTest', function (id) {
+        // Note the variable in the route definition being passed in here
+        alert( "user test " + id );   
+    });
+
+    app_router.on('route:getContacts', function (id, page) {
+        alert( 'get contacts of ' + id + ' page ' + page  ); 
+    });
+
+    app_router.on('route:getCandidates', function (id, page) {
+        alert( 'get contacts of test ' + id + ' page ' + page  ); 
+    });
+
+    app_router.on('route:getAbout', function () {
+        alert( 'about' ); 
+    });
+
+    app_router.on('route:getEditor', function (id) {
+        alert( 'editor for test ' + id); 
+    });
+    
+    // Start Backbone history a necessary step for bookmarkable URL's
+    Backbone.history.start();
+
+</script>
+
+</head>
+<body>
+
+<div id="menu" >
+
+	<div id="menuindication">
+		<hr >
+		<hr >
+		<hr >
+	</div>
+
+	<div id="userinfos" class="menucontent"> 
+	</div>
+
+	<div id="navigation" class="menucontent">
+		<div class="link"><a href="#users/1">Mon Profil</a></div>
+		<div class="link"><a href="#editor/1">Mon Questionnaire</a></div>
+		<div class="link"><a href="#candidates/1/1">Mes Candidats</a></div>
+		<div class="link"><a href="#about">About</a></div>
+	</div>
+</div>
+
+<div id="page">
+
+	<div id="pagehead">
+		<div class="menubutton">
+			<hr >
+			<hr >
+			<hr >
+		</div>
+		<div id="pagetitle">
+			Ici le titre de la page
+		</div>
+	</div>
+
+	<div id="pagecontent">
+
+        <div id="community">
+
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+            <div class="member">
+                <div class="picture">
+                </div>
+                <div class="infos">
+                    <div class="name">Xxxxxx</div>
+                    <div class="age">XX xxx</div>
+                    <div class="city">Xxxx</div>
+                </div>
+            </div>
+            
+        </div>
+
+	</div>
+	
+	<div id="pagecontrols">
+
+	</div>
+
+</div>
+<script type="text/javascript">
+	
+	var openMenu = function () {
+		$('body').addClass('withMenu');
+	}
+
+	var closeMenu = function() {
+		$('body').removeClass('withMenu');
+	}
+
+	$('#menu').hover(openMenu, closeMenu);
+
+</script>
+
+</body>
+</html>

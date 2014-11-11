@@ -1,0 +1,25 @@
+modules :
+	
+	menu (F)
+	liste spoots (D)
+		recherche par tags
+		recherche par contenu
+	map spoots (D)
+		spoot autour de moi	
+		tags autour de moi
+	mes spoots (D)
+		historique de mes  spoot
+	spoot-groops qui me concernent (D)
+		repondre à un spoot-groop
+	creer un spoot ou un spoot-groop (D)
+		ajouter un contact
+		ecrire
+		spooter
+	lister mes contacts
+		supprimer
+	trouver des conatacts
+		ajouter
+
+
+
+
